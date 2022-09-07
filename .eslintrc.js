@@ -1,8 +1,17 @@
 module.exports = {
-	parser: '@typescript-eslint/parser', // ESlint Parser
+	env: {
+		jest: true,
+		browser: true,
+		node: true,
+		es6: true,
+	}, // 指定运行的环境
+	parser: '@typescript-eslint/parser', // 解析器
 	extends: [
 		'plugin:react/recommended', // 从@eslint-plugin-react中选择推荐的规则
 		'plugin:@typescript-eslint/recommended', // 从@typescript-eslint/eslint-plugin选择推荐的规则
+		'airbnb',
+		'airbnb/hooks',
+		'airbnb-typescript',
 		'prettier', // 兼容prettier
 	],
 	parserOptions: {
@@ -11,7 +20,8 @@ module.exports = {
 		ecmaFeatures: {
 			jsx: true, // JSX兼容
 		},
-	},
+	}, // 解析器相关设置
+	plugins: ['react', 'react-hooks', '@typescript-eslint'],
 	rules: {
 		'@typescript-eslint/no-var-requires': 'off',
 	},
